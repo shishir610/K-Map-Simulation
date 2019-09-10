@@ -1,0 +1,16 @@
+td{
+    border: 5px solid rgba(0, 162, 255, 0.534);
+    height:150px;
+    width:150px;
+    text-align:center;
+    font-size: 100px;
+    cursor: pointer;
+}
+table{
+    border-collapse: collapse;
+    position: absolute;
+    left: 50%;
+    margin-left: -215px;
+    top : 50%;
+    margin-top: -205px;
+}
