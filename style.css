@@ -15,4 +15,14 @@ table{
     margin-left: -215px;
     top : 50%;
     margin-top: -205px;
+    background-color: aliceblue;    
+}
+#minterms{
+    text-align:center;
+    font-size: 35px;
+    position: absolute;
+    top : 10%;
+    left: 42%;
+    font-family: 'Lato', sans-serif;
+    color: #0d4f6b;
 }
