@@ -8,17 +8,6 @@ var separations = {
     2 : [3,5,6,9,10,12],
     3 : [7,11,13,14],
     4 : [15]
-    /*
-    0 : 0, 1 : 1, 2 : 1, 3 : 2, 4 : 1,
-    5 : 2,          //Alternative to the current implementation
-    6 : 2,
-    7 : 3,
-    8 : 2,
-    9 : 2,
-    10 : 2,
-    11 : 3,
-    12 : 2,
-*/
 };
 var cur_separations = {
     0 : [],
@@ -85,13 +74,17 @@ function generateSeparation(o){
     }
 }
 
+//CURRENT IMPLEMENTATION : WORKS ONLY FOR BI'S
 function QM(cur){
     qm = []
-    console.log(cur)
     for(let i=0;i<4;i++){
         if (cur[i].length != 0 && cur[i+1].length != 0){
             for(let j=0;j<cur[i].length;j++){
-                console.log(cur[i][j])
+                for(let k=0;k<cur[i+1].length;k++){
+                    if(separations[1].includes(cur[i+1][k]-cur[i][j])){
+                        qm.push([cur[i+1][k],cur[i][j],cur[i+1][k]-cur[i][j]])
+                    }
+                }
             }
         }
         else{
@@ -101,5 +94,16 @@ function QM(cur){
                 }
             }
         }
+    }
+    colours = ['pink','lightblue','lightgreen','lightred']
+    console.log(qm)
+    for(let i=0;i<qm.length;i++){
+        if(qm[i][2] != 0){
+            document.getElementById(qm[i][0]).style.backgroundColor = colours[i];
+            document.getElementById(qm[i][1]).style.backgroundColor = colours[i];
+        }
+    }
+    if(qm.length == 0){
+        document.getElementsByName('table').style.backgroundColor = 'aliceblue';
     }
 }
